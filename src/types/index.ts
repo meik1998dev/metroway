@@ -15,6 +15,7 @@ export type SearchQuery = {
    origin: string;
    destination: string;
    date: string;
+   submitted: boolean;
 };
 
 export type SearchQueryContextType = {

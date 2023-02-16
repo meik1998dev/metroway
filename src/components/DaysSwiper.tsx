@@ -15,13 +15,6 @@ export const DaysSwiper = () => {
       setsearchQuery({ ...searchQuery, date });
    };
 
-   useEffect(() => {
-      setsearchQuery({
-         ...searchQuery,
-         date: nextDays[3].fullDate,
-      });
-   }, []);
-
    return (
       <div className='h-24'>
          <Swiper

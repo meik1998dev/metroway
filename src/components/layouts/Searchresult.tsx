@@ -7,10 +7,15 @@ export const Searchresult = () => {
    const { trips } = useContext(trainTripsContext);
    const { searchQuery } = useContext(searchQueryContext);
 
-   if (!searchQuery.origin.length || !searchQuery.destination.length)
+   if (
+      !searchQuery.origin.length ||
+      !searchQuery.destination.length ||
+      !searchQuery.submitted
+   )
       return <></>;
 
-   if (!trips.length) return <h2 className='text-2xl text-center my-8'>No Results</h2>;
+   if (!trips.length && searchQuery.submitted)
+      return <h2 className='text-2xl text-center my-8'>No Result</h2>;
 
    return (
       <div className='flex flex-col'>
