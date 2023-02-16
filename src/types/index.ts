@@ -9,3 +9,20 @@ export type TrainTrip = {
    destination: string;
    available_seats: number;
 };
+
+export type SearchQuery = {
+   passengers: number;
+   origin: string;
+   destination: string;
+   date: string;
+};
+
+export type SearchQueryContextType = {
+   searchQuery: SearchQuery;
+   setsearchQuery: (searchQuery: SearchQuery) => void;
+};
+
+export type TrainTripContextType = {
+   trips: TrainTrip[];
+   setTrips: (tripsArr: TrainTrip[]) => void;
+};

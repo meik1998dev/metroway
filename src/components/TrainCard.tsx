@@ -1,10 +1,29 @@
+import { getTimeDuration } from '@/helpers';
+import { TrainTrip } from '@/types';
 import React from 'react';
 
-export const TrainCard = () => {
+export const TrainCard = ({
+   flight_id,
+   date,
+   time_depart,
+   time_arrival,
+   date_time_depart,
+   date_time_arrival,
+   origin,
+   destination,
+   available_seats,
+}: TrainTrip) => {
+   const formatDate = (date: string) => {
+      return new Date(date).toLocaleDateString('en-US', {
+         weekday: 'short',
+         day: '2-digit',
+      });
+   };
+
    return (
-      <div className='flex flex-col w-full justify-start shadow-md items-start relative overflow-hidden gap-[15px] h-min px-[25px] py-5 rounded-[10px] bg-white'>
+      <div className='flex flex-col w-full justify-start shadow-md items-start relative gap-[15px]  px-[25px] py-5 rounded-[10px] bg-white'>
          <p className='flex-grow-0 flex-shrink-0 text-base font-medium text-left text-[#202020]'>
-            12430 - Ndls Lko Ac Sf
+            {flight_id} - {destination}
          </p>
          <div className='flex justify-between items-center w-full relative'>
             <div className='flex-grow-0 flex-shrink-0  h-[57px]'>
@@ -24,12 +43,14 @@ export const TrainCard = () => {
 
          <div className='flex justify-between items-center md:gap-14 gap-4 w-full'>
             <div className='flex w-[110px] flex-col gap-1 text-sm font-normal'>
-               <span>Nov 16</span>
-               <span>11:25 pm NDLS, New Delhi</span>
+               <span>{formatDate(date_time_depart)}</span>
+               <span>
+                  {time_depart} {destination}
+               </span>
             </div>
             <div className='flex flex-col justify-start items-center relative gap-[5px]'>
                <p className='flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#808080]/50'>
-                  8 hours
+                  {getTimeDuration(time_depart, time_arrival)}
                </p>
                <svg
                   height={6}
@@ -44,10 +65,12 @@ export const TrainCard = () => {
                      fill-opacity='0.75'
                   />
                </svg>
-            </div>{' '}
+            </div>
             <div className='flex w-[110px] text-right flex-col gap-1 text-sm font-normal'>
-               <span>Nov 16</span>
-               <span>11:25 pm NDLS, New Delhi</span>
+               <span>{formatDate(date_time_arrival)}</span>
+               <span>
+                  {time_arrival} {destination}
+               </span>{' '}
             </div>
          </div>
 
