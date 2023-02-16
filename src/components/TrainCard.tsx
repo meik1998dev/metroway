@@ -45,7 +45,7 @@ export const TrainCard = ({
             <div className='flex w-[110px] flex-col gap-1 text-sm font-normal'>
                <span>{formatDate(date_time_depart)}</span>
                <span>
-                  {time_depart} {destination}
+                  {time_depart} {origin}
                </span>
             </div>
             <div className='flex flex-col justify-start items-center relative gap-[5px]'>

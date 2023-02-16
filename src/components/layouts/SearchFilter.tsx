@@ -1,33 +1,16 @@
-import React, { useContext, useEffect, useMemo } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { generateNext30days } from '@/helpers';
+import React, { useContext } from 'react';
 import { searchQueryContext } from '@/contexts/FilterQueryProvider';
 import { trainTripsContext } from '@/contexts/TrainTripsProvider';
 import { trainTripsData } from '@/mock/trainTrips';
+import { DaysSwiper } from '../DaysSwiper';
 
 export const SearchFilter = () => {
    const { searchQuery, setsearchQuery } = useContext(searchQueryContext);
    const { setTrips } = useContext(trainTripsContext);
-   const nextDays = useMemo(() => generateNext30days(), []);
-
-   const handleSelectDate = (date: string) => {
-      setsearchQuery({ ...searchQuery, date });
-   };
 
    const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
       setsearchQuery({ ...searchQuery, [e.target.name]: e.target.value });
    };
-
-   useEffect(() => {
-      setsearchQuery({
-         ...searchQuery,
-         date: nextDays[3].fullDate,
-      });
-   }, []);
 
    const handleSearch = async () => {
       const filteredTrips = trainTripsData.filter(
@@ -37,15 +20,13 @@ export const SearchFilter = () => {
                searchQuery.destination.toLowerCase() &&
             trip.origin.toLowerCase() === searchQuery.origin.toLowerCase(),
       );
-      console.log(searchQuery);
-
       setTrips(filteredTrips);
    };
 
    return (
       <div className='flex flex-col md:gap-14 gap-3'>
          <p className='flex-grow-0 flex-shrink-0 text-[32px] font-semibold text-left text-primary'>
-            Your Search Results
+            Search for a trip
          </p>
          <div className='flex flex-col gap-7'>
             <div className='grid grid-cols-2 gap-6'>
@@ -74,44 +55,7 @@ export const SearchFilter = () => {
                Search for trains
             </button>
          </div>
-
-         <div className='h-24'>
-            <Swiper
-               slidesPerView={4}
-               spaceBetween={20}
-               navigation={true}
-               breakpoints={{
-                  640: {
-                     slidesPerView: 2,
-                     spaceBetween: 20,
-                  },
-                  768: {
-                     slidesPerView: 4,
-                     spaceBetween: 20,
-                  },
-                  1024: {
-                     slidesPerView: 7,
-                     spaceBetween: 20,
-                  },
-               }}
-               modules={[Pagination, Navigation]}
-               className='mySwiper'>
-               {nextDays.map(({ dateText, fullDate }) => (
-                  <SwiperSlide
-                     onClick={() => handleSelectDate(fullDate)}
-                     key={dateText}
-                     className={`rounded-[10px] transition-all cursor-pointer px-6 py-3 text-xl font-medium ${
-                        searchQuery?.date === fullDate
-                           ? 'bg-primary text-white'
-                           : 'bg-white'
-                     }`}>
-                     <span className='h-full flex justify-center items-center'>
-                        {dateText}
-                     </span>
-                  </SwiperSlide>
-               ))}
-            </Swiper>
-         </div>
+         <DaysSwiper />
       </div>
    );
 };
