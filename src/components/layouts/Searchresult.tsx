@@ -1,9 +1,16 @@
+import { searchQueryContext } from '@/contexts/FilterQueryProvider';
 import { trainTripsContext } from '@/contexts/TrainTripsProvider';
 import React, { useContext } from 'react';
 import { TrainCard } from '../TrainCard';
 
 export const Searchresult = () => {
    const { trips } = useContext(trainTripsContext);
+   const { searchQuery } = useContext(searchQueryContext);
+
+   if (!searchQuery.origin.length || !searchQuery.destination.length)
+      return <></>;
+
+   if (!trips.length) return <h2 className='text-2xl text-center my-8'>No Results</h2>;
 
    return (
       <div className='flex flex-col'>

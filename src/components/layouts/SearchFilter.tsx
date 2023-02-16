@@ -12,7 +12,6 @@ import { trainTripsData } from '@/mock/trainTrips';
 export const SearchFilter = () => {
    const { searchQuery, setsearchQuery } = useContext(searchQueryContext);
    const { setTrips } = useContext(trainTripsContext);
-
    const nextDays = useMemo(() => generateNext30days(), []);
 
    const handleSelectDate = (date: string) => {
@@ -22,10 +21,6 @@ export const SearchFilter = () => {
    const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
       setsearchQuery({ ...searchQuery, [e.target.name]: e.target.value });
    };
-
-   function fieldsIsEmpty() {
-      return !searchQuery.origin.length || !searchQuery.destination.length;
-   }
 
    useEffect(() => {
       setsearchQuery({
@@ -70,7 +65,9 @@ export const SearchFilter = () => {
                />
             </div>
             <button
-               disabled={fieldsIsEmpty()}
+               disabled={
+                  !searchQuery.origin.length || !searchQuery.destination.length
+               }
                onClick={handleSearch}
                className='flex justify-center disabled:cursor-not-allowed disabled:opacity-50 hover:bg-primary/80 active:bg-primary transition-all items-center text-sm font-medium text-white
                   w-full relative overflow-hidden gap-2.5 px-[25px] py-4 rounded-[10px] bg-primary'>
