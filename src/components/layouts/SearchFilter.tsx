@@ -38,8 +38,9 @@ export const SearchFilter = () => {
       const filteredTrips = trainTripsData.filter(
          (trip) =>
             trip.date === searchQuery.date &&
-            trip.destination === searchQuery.destination &&
-            trip.origin === searchQuery.origin,
+            trip.destination.toLowerCase() ===
+               searchQuery.destination.toLowerCase() &&
+            trip.origin.toLowerCase() === searchQuery.origin.toLowerCase(),
       );
       console.log(searchQuery);
 
@@ -47,7 +48,7 @@ export const SearchFilter = () => {
    };
 
    return (
-      <div className='flex flex-col gap-14'>
+      <div className='flex flex-col md:gap-14 gap-3'>
          <p className='flex-grow-0 flex-shrink-0 text-[32px] font-semibold text-left text-primary'>
             Your Search Results
          </p>

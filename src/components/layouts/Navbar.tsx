@@ -12,7 +12,7 @@ export const Navbar = () => {
                way
             </span>
          </p>
-         <div className='flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-[60px]'>
+         <div className='flex justify-start items-start flex-grow-0 flex-shrink-0 relative md:gap-[60px] gap-3'>
             <Link
                href='/'
                className='flex-grow-0 flex-shrink-0 text-sm font-medium text-left text-neutral-700'>

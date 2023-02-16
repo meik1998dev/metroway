@@ -75,8 +75,8 @@ export const TrainCard = ({
          </div>
 
          <div className='flex justify-start items-center flex-wrap gap-[15px] '>
-            <div className='flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 gap-[5px] p-[25px] rounded-[10px] bg-[#d0ffc8]'>
-               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 w-[121px] relative'>
+            <div className='flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 gap-[5px] md:p-[25px] p-3 rounded-[10px] bg-[#d0ffc8]'>
+               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 md:w-[121px] w-fit relative'>
                   <p className='flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#202020]'>
                      3A
                   </p>
@@ -84,7 +84,7 @@ export const TrainCard = ({
                      Avl - 046
                   </p>
                </div>
-               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 w-[121px] relative'>
+               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 md:w-[121px] w-fit relative'>
                   <p className='flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#202020]'>
                      Tatkal
                   </p>
@@ -93,8 +93,8 @@ export const TrainCard = ({
                   </p>
                </div>
             </div>
-            <div className='flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 gap-[5px] p-[25px] rounded-[10px] bg-[#ffe9c8]'>
-               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 w-[121px] relative'>
+            <div className='flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 gap-[5px] md:p-[25px] p-3 rounded-[10px] bg-[#ffe9c8]'>
+               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 md:w-[121px] w-fit relative'>
                   <p className='flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#202020]'>
                      2A
                   </p>
@@ -102,7 +102,7 @@ export const TrainCard = ({
                      Avl - 006
                   </p>
                </div>
-               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 w-[121px] relative'>
+               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 md:w-[121px] w-fit relative'>
                   <p className='flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#202020]'>
                      Tatkal
                   </p>
@@ -111,8 +111,8 @@ export const TrainCard = ({
                   </p>
                </div>
             </div>
-            <div className='flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-[25px] rounded-[10px] bg-[#ffcdcd]'>
-               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 w-[121px] relative'>
+            <div className='flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 md:p-[25px] p-3 rounded-[10px] bg-[#ffcdcd]'>
+               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 md:w-[121px] w-fit relative'>
                   <p className='flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#202020]'>
                      1A
                   </p>
@@ -120,7 +120,7 @@ export const TrainCard = ({
                      WL - 36
                   </p>
                </div>
-               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 w-[121px] relative'>
+               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 md:w-[121px] w-fit relative'>
                   <p className='flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#202020]'>
                      Tatkal
                   </p>
@@ -129,13 +129,13 @@ export const TrainCard = ({
                   </p>
                </div>
             </div>
-            <div className='flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-[25px] rounded-[10px] border-2 border-[#f88]'>
-               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 w-[121px] relative'>
+            <div className='flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 md:p-[25px] p-3 rounded-[10px] border-2 border-[#f88]'>
+               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 md:w-[121px] w-fit relative'>
                   <p className='flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#202020]'>
                      SL
                   </p>
                </div>
-               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 w-[121px] relative'>
+               <div className='flex justify-between items-start flex-grow-0 flex-shrink-0 md:w-[121px] w-fit relative'>
                   <p className='flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#202020]'>
                      Not Available
                   </p>
